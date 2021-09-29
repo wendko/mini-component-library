@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { COLORS } from '../../constants';
 import Icon from '../Icon';
+import VisuallyHidden from '../VisuallyHidden';
 import { getDisplayedValue } from './Select.helpers';
 
 
@@ -36,6 +37,7 @@ const Select = ({ label, value, onChange, children }) => {
 
   return (
     <SelectElement value={value} displayedValue={displayedValue} onChange={onChange}>
+        <VisuallyHidden>{label}</VisuallyHidden>
         {children.map(child => {
             if (child.props.value === value) {
                 return <option selected value={child.props.value}>{child.props.children}</option>;
